@@ -1,0 +1,10 @@
+[package]
+name = "day-07"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.10.2"
+num = "0.4"
+indextree = "*"
+runner = { path = "../runner" }
