@@ -7,7 +7,7 @@ const NEEDED_SIZE: usize = 30_000_000;
 
 pub fn find_deletable_directory_size(input: &str) -> usize {
     let (tree, root_id) = parse_tree(input);
-    
+
     let unused_size = HDD_SIZE - tree.get(root_id).unwrap().get().get_dir_size();
     let needed_size = NEEDED_SIZE - unused_size;
 

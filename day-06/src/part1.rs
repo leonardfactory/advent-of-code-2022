@@ -1,7 +1,12 @@
 use itertools::Itertools;
 
 pub fn marker_position(stream: &str) -> usize {
-    stream.as_bytes().windows(4).position(|w| w.iter().unique().collect_vec().len() == 4).unwrap() + 4
+    stream
+        .as_bytes()
+        .windows(4)
+        .position(|w| w.iter().unique().collect_vec().len() == 4)
+        .unwrap()
+        + 4
 }
 
 #[cfg(test)]

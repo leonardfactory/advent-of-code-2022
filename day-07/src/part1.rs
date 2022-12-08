@@ -7,7 +7,7 @@ use itertools::Itertools;
 pub enum Line {
     ChangeDir(String),
     List,
-    Output(String)
+    Output(String),
 }
 
 impl Line {
@@ -20,7 +20,7 @@ impl Line {
         match parts.next() {
             Some("cd") => Line::ChangeDir(parts.next().unwrap().to_string()),
             Some("ls") => Line::List,
-            _ => panic!("Unknown command")
+            _ => panic!("Unknown command"),
         }
     }
 }
@@ -28,7 +28,7 @@ impl Line {
 #[derive(Debug)]
 pub enum FileSystemNode {
     Dir(String, usize),
-    File(String, usize)
+    File(String, usize),
 }
 
 impl FileSystemNode {
@@ -39,14 +39,14 @@ impl FileSystemNode {
     pub fn add_size(&mut self, size: usize) {
         match self {
             FileSystemNode::Dir(_, s) => *s += size,
-            FileSystemNode::File(_, _) => panic!("Cannot add size to file")
+            FileSystemNode::File(_, _) => panic!("Cannot add size to file"),
         }
     }
 
     pub fn get_dir_size(&self) -> usize {
         match self {
             FileSystemNode::Dir(_, s) => *s,
-            FileSystemNode::File(_, _) => 0
+            FileSystemNode::File(_, _) => 0,
         }
     }
 }
@@ -61,10 +61,10 @@ pub fn parse_tree(data: &str) -> (Arena<FileSystemNode>, NodeId) {
         match line {
             Line::ChangeDir(dir) if dir == "/" => {
                 current_id = root_id;
-            },
+            }
             Line::ChangeDir(dir) if dir == ".." => {
                 current_id = tree.get(current_id).unwrap().parent().unwrap();
-            },
+            }
             Line::ChangeDir(dir) => {
                 let child = current_id
                     .children(&tree)
@@ -78,15 +78,15 @@ pub fn parse_tree(data: &str) -> (Arena<FileSystemNode>, NodeId) {
                         current_id = new_id;
                     }
                 }
-            },
-            Line::List => {},
+            }
+            Line::List => {}
             Line::Output(output) => {
                 let (size_or_dir, name) = output.split_once(" ").unwrap();
                 match size_or_dir {
                     "dir" => {
                         let new_id = tree.new_node(FileSystemNode::Dir(name.to_string(), 0));
                         current_id.append(new_id, &mut tree);
-                    },
+                    }
                     size => {
                         let size = size.parse::<usize>().unwrap();
                         let new_id = tree.new_node(FileSystemNode::File(name.to_string(), size));
@@ -113,7 +113,7 @@ fn print_filesystem(tree: &Arena<FileSystemNode>) {
         let indent = " ".repeat(depth * 2);
         match node {
             FileSystemNode::Dir(name, size) => println!("{}-{} ({})", indent, name, size),
-            FileSystemNode::File(name, size) => println!("{} {} ({})", indent, name, size)
+            FileSystemNode::File(name, size) => println!("{} {} ({})", indent, name, size),
         }
     });
 }
@@ -123,7 +123,8 @@ pub fn find_directories_by_total_size(input: &str) -> usize {
     // print_filesystem(&tree);
     tree.iter()
         .filter(|n| n.get().get_dir_size() < 100000)
-        .map(|n| n.get().get_dir_size()).sum()
+        .map(|n| n.get().get_dir_size())
+        .sum()
 }
 
 #[cfg(test)]

@@ -32,11 +32,17 @@ pub fn transform_strategy(strategy: &Strategy) -> Strategy {
 
 #[cfg(test)]
 pub mod tests {
-    use crate::{part2::*, part1::{parse, winning_score}};
+    use crate::{
+        part1::{parse, winning_score},
+        part2::*,
+    };
 
     #[test]
     fn test_example() {
-        let input: Vec<_> = parse(include_str!("../test.txt")).iter().map(transform_strategy).collect();
+        let input: Vec<_> = parse(include_str!("../test.txt"))
+            .iter()
+            .map(transform_strategy)
+            .collect();
         assert_eq!(winning_score(&input), 12);
     }
 }

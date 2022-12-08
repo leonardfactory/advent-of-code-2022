@@ -1,15 +1,19 @@
-use std::{collections::HashSet};
+use std::collections::HashSet;
 
 use itertools::Itertools;
 
 use crate::part1::char_priority;
 
 pub fn sum_badges_priorities(data: &str) -> usize {
-    data.lines().chunks(3).into_iter().map(|lines| {
-        let uniques: Vec<_> = lines.map(find_uniq_letters).collect();
-        let chars = shared_letters(&uniques[0], &shared_letters(&uniques[1], &uniques[2]));
-        char_priority(*chars.iter().next().unwrap())
-    }).sum()
+    data.lines()
+        .chunks(3)
+        .into_iter()
+        .map(|lines| {
+            let uniques: Vec<_> = lines.map(find_uniq_letters).collect();
+            let chars = shared_letters(&uniques[0], &shared_letters(&uniques[1], &uniques[2]));
+            char_priority(*chars.iter().next().unwrap())
+        })
+        .sum()
 }
 
 pub fn find_uniq_letters(line: &str) -> HashSet<char> {

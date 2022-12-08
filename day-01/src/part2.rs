@@ -4,7 +4,7 @@ pub fn top_three_elves(elves: &[u32]) -> u32 {
 
 #[cfg(test)]
 pub mod tests {
-    use crate::{part2::*, part1::order_elves};
+    use crate::{part1::order_elves, part2::*};
 
     #[test]
     fn test_example() {

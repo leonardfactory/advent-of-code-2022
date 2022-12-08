@@ -1,7 +1,12 @@
 use itertools::Itertools;
 
 pub fn message_position(stream: &str) -> usize {
-    stream.as_bytes().windows(14).position(|w| w.iter().unique().collect_vec().len() == 14).unwrap() + 14
+    stream
+        .as_bytes()
+        .windows(14)
+        .position(|w| w.iter().unique().collect_vec().len() == 14)
+        .unwrap()
+        + 14
 }
 
 #[cfg(test)]

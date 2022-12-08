@@ -15,15 +15,12 @@ pub fn parse_line(data: &str) -> Assignment {
     let first = elves.next().unwrap();
     let second = elves.next().unwrap();
 
-    Assignment {
-        first,
-        second,
-    }
+    Assignment { first, second }
 }
 
 pub fn has_overlaps(assignment: &Assignment) -> bool {
-    assignment.first.0 >= assignment.second.0 && assignment.first.1 <= assignment.second.1 ||
-    assignment.second.0 >= assignment.first.0 && assignment.second.1 <= assignment.first.1
+    assignment.first.0 >= assignment.second.0 && assignment.first.1 <= assignment.second.1
+        || assignment.second.0 >= assignment.first.0 && assignment.second.1 <= assignment.first.1
 }
 
 #[cfg(test)]

@@ -22,7 +22,7 @@ pub fn parse(data: &str) -> Vec<Strategy> {
             let mut parts = l.split(' ');
             Strategy {
                 player1: parse_value(parts.next().unwrap()),
-                player2: parse_value(parts.next().unwrap()) ,
+                player2: parse_value(parts.next().unwrap()),
             }
         })
         .collect()
@@ -32,10 +32,10 @@ pub fn parse(data: &str) -> Vec<Strategy> {
 // 1 Carta
 // 2 Forbice
 pub fn strategy_score(strategy: &Strategy) -> usize {
-    if strategy.player1 == strategy.player2 { 
+    if strategy.player1 == strategy.player2 {
         return 3 + strategy.player2 + 1;
     }
-    
+
     let is_win = match strategy.player2 {
         0 => strategy.player1 == 2,
         1 => strategy.player1 == 0,

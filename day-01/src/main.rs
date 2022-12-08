@@ -1,4 +1,7 @@
-use day_01::{part1::{order_elves, max_elf}, part2::top_three_elves};
+use day_01::{
+    part1::{max_elf, order_elves},
+    part2::top_three_elves,
+};
 use runner::Runner;
 
 fn main() {

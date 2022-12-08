@@ -1,11 +1,13 @@
 use itertools::Itertools;
 
-use crate::part1::{Move, parse};
+use crate::part1::{parse, Move};
 
 fn reorder(stacks: &mut Vec<Vec<char>>, rules: &[Move]) {
     for rule in rules {
         let stack_from_len = stacks[rule.from].len();
-        let mut to_move = stacks[rule.from].drain((stack_from_len - rule.amount)..).collect_vec();
+        let mut to_move = stacks[rule.from]
+            .drain((stack_from_len - rule.amount)..)
+            .collect_vec();
         stacks[rule.to].append(&mut to_move);
     }
 }

@@ -1,4 +1,7 @@
-use day_02::{part1::{winning_score, parse}, part2::transform_strategy};
+use day_02::{
+    part1::{parse, winning_score},
+    part2::transform_strategy,
+};
 use runner::Runner;
 
 fn main() {

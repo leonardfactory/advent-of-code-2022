@@ -4,7 +4,13 @@ use runner::Runner;
 fn main() {
     let runner = Runner::start();
     let input = include_str!("../input.txt");
-    println!("Directories < 100k: {}", find_directories_by_total_size(input));
-    println!("Size of directory to be deleted: {}", find_deletable_directory_size(input));
+    println!(
+        "Directories < 100k: {}",
+        find_directories_by_total_size(input)
+    );
+    println!(
+        "Size of directory to be deleted: {}",
+        find_deletable_directory_size(input)
+    );
     runner.end();
 }

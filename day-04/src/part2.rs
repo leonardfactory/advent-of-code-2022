@@ -5,13 +5,13 @@ pub fn is_partial_overlap(first: (usize, usize), second: (usize, usize)) -> bool
 }
 
 pub fn has_partial_overlap(assignment: &Assignment) -> bool {
-    is_partial_overlap(assignment.first, assignment.second) ||
-    is_partial_overlap(assignment.second, assignment.first)
+    is_partial_overlap(assignment.first, assignment.second)
+        || is_partial_overlap(assignment.second, assignment.first)
 }
 
 #[cfg(test)]
 pub mod tests {
-    use crate::{part2::*, part1::parse_line};
+    use crate::{part1::parse_line, part2::*};
 
     #[test]
     fn test_partial_overlap() {

@@ -21,7 +21,7 @@ use itertools::Itertools;
 
 pub fn find_common_letters(data: &str) -> char {
     let first = data[0..(data.len() / 2 + 1)].chars(); //.sorted();
-    let second = data[(data.len() / 2)..].chars();// .sorted();
+    let second = data[(data.len() / 2)..].chars(); // .sorted();
 
     for (a, b) in first.cartesian_product(second) {
         if a == b {
@@ -41,7 +41,9 @@ pub fn char_priority(char: char) -> usize {
 }
 
 pub fn sum_rucksack_priorities(data: &str) -> usize {
-    data.lines().map(|line| char_priority(find_common_letters(line))).sum()
+    data.lines()
+        .map(|line| char_priority(find_common_letters(line)))
+        .sum()
 }
 
 #[cfg(test)]
