@@ -1,5 +1,5 @@
-# advent-of-code-2016
- Advent of Code 2016
+# advent-of-code-2022
+ Advent of Code 2022
 
 ## Running
 
