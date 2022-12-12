@@ -4,7 +4,7 @@ use crate::part1::{parse_input, Monkey};
 
 pub fn count_unmanageable_monkey_business(input: &str, rounds: usize) -> usize {
     let mut monkeys = parse_input(input);
-    for i in 0..rounds {
+    for _ in 0..rounds {
         run_round(&mut monkeys);
         // debug_round(i, &monkeys);
     }
@@ -36,6 +36,8 @@ fn run_round(monkeys: &mut Vec<Monkey>) {
         }
     }
 }
+
+#[allow(dead_code)]
 fn debug_round(i: usize, monkeys: &Vec<Monkey>) {
     println!("==== Round: {} ====", i);
     (0..monkeys.len()).for_each(|i| {
