@@ -1,0 +1,10 @@
+[package]
+name = "day-12"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.10.2"
+num = "0.4"
+tap = "*"
+runner = { path = "../runner" }
