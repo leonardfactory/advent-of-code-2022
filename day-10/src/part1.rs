@@ -1,5 +1,3 @@
-use std::cmp::{max, min};
-
 use itertools::Itertools;
 
 const CYCLES_COUNT: usize = 6;

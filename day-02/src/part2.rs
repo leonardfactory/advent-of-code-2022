@@ -1,24 +1,24 @@
 use crate::part1::Strategy;
 
 impl Strategy {
-    const Rock: usize = 0;
-    const Paper: usize = 1;
-    const Scissors: usize = 2;
+    const ROCK: usize = 0;
+    const PAPER: usize = 1;
+    const SCISSORS: usize = 2;
 
-    const Lose: usize = 0;
-    const Draw: usize = 1;
-    const Win: usize = 2;
+    const LOSE: usize = 0;
+    const DRAW: usize = 1;
+    const WIN: usize = 2;
 }
 
 pub fn find_shape(strategy: &Strategy) -> usize {
     match (strategy.player1, strategy.player2) {
-        (Strategy::Rock, Strategy::Win) => Strategy::Paper,
-        (Strategy::Paper, Strategy::Win) => Strategy::Scissors,
-        (Strategy::Scissors, Strategy::Win) => Strategy::Rock,
-        (Strategy::Rock, Strategy::Lose) => Strategy::Scissors,
-        (Strategy::Paper, Strategy::Lose) => Strategy::Rock,
-        (Strategy::Scissors, Strategy::Lose) => Strategy::Paper,
-        (p1, Strategy::Draw) => p1,
+        (Strategy::ROCK, Strategy::WIN) => Strategy::PAPER,
+        (Strategy::PAPER, Strategy::WIN) => Strategy::SCISSORS,
+        (Strategy::SCISSORS, Strategy::WIN) => Strategy::ROCK,
+        (Strategy::ROCK, Strategy::LOSE) => Strategy::SCISSORS,
+        (Strategy::PAPER, Strategy::LOSE) => Strategy::ROCK,
+        (Strategy::SCISSORS, Strategy::LOSE) => Strategy::PAPER,
+        (p1, Strategy::DRAW) => p1,
         _ => panic!("Unknown strategy: {:?}", strategy),
     }
 }

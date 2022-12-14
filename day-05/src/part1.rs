@@ -2,7 +2,7 @@ use itertools::Itertools;
 use lazy_static::lazy_static;
 use regex::Regex;
 
-fn reorder(stacks: &mut Vec<Vec<char>>, rules: &[Move]) {
+fn reorder(stacks: &mut [Vec<char>], rules: &[Move]) {
     for rule in rules {
         let stack_from_len = stacks[rule.from].len();
         let mut to_move = stacks[rule.from]

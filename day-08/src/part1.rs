@@ -50,6 +50,7 @@ pub fn count_visible_trees(data: &str) -> usize {
     count
 }
 
+#[allow(dead_code)]
 fn print_grid_highlight(grid: &Grid<usize>, pos: Pos) {
     for y in 0..grid.rows() {
         for x in 0..grid.cols() {

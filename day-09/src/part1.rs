@@ -1,7 +1,4 @@
-use std::{
-    cmp::{max, min},
-    collections::HashSet,
-};
+use std::{cmp::max, collections::HashSet};
 
 use num::abs;
 
@@ -23,6 +20,7 @@ impl Grid {
         abs(x - hx) <= 1 && abs(y - hy) <= 1
     }
 
+    #[allow(dead_code)]
     fn print(&self) {
         let mut values = self
             .map
@@ -88,7 +86,7 @@ fn simulate_tail(grid: &mut Grid) {
 
 fn run_step(grid: &mut Grid, step: &Step) {
     let (dx, dy) = step.heading;
-    for i in 0..step.dist {
+    for _i in 0..step.dist {
         // println!("Step {}", i);
         grid.head = Pos(grid.head.0 + dx, grid.head.1 + dy);
         simulate_tail(grid);

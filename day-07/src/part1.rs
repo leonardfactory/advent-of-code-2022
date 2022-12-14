@@ -1,9 +1,7 @@
-use std::collections::VecDeque;
-
 use indextree::{Arena, NodeId};
 use itertools::Itertools;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum Line {
     ChangeDir(String),
     List,
@@ -81,7 +79,7 @@ pub fn parse_tree(data: &str) -> (Arena<FileSystemNode>, NodeId) {
             }
             Line::List => {}
             Line::Output(output) => {
-                let (size_or_dir, name) = output.split_once(" ").unwrap();
+                let (size_or_dir, name) = output.split_once(' ').unwrap();
                 match size_or_dir {
                     "dir" => {
                         let new_id = tree.new_node(FileSystemNode::Dir(name.to_string(), 0));
@@ -105,6 +103,7 @@ pub fn parse_tree(data: &str) -> (Arena<FileSystemNode>, NodeId) {
     (tree, root_id)
 }
 
+#[allow(dead_code)]
 fn print_filesystem(tree: &Arena<FileSystemNode>) {
     tree.iter().for_each(|n| {
         let node = n.get();

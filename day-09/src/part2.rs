@@ -1,8 +1,5 @@
 use num::abs;
-use std::{
-    cmp::{max, min},
-    collections::HashSet,
-};
+use std::{cmp::max, collections::HashSet};
 
 use crate::part1::{Pos, Step};
 
@@ -18,8 +15,9 @@ impl Grid {
         abs(x - hx) <= 1 && abs(y - hy) <= 1
     }
 
+    #[allow(dead_code)]
     fn print(&self) {
-        let mut values = self
+        let values = self
             .map
             .iter()
             .map(|Pos(x, y)| (*x, *y))
