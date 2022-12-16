@@ -6,4 +6,7 @@ edition = "2021"
 [dependencies]
 itertools = "0.10.2"
 num = "0.4"
+bevy = "0.9.1"
+bevy_flycam = "*"
+iyes_loopless = { version = "0.9.1", features = ["fixedtimestep", "states"] }
 runner = { path = "../runner" }
