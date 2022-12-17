@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use bevy_flycam::PlayerPlugin;
+// use bevy_flycam::PlayerPlugin;
 use day_14::render::VisualizationPlugin;
 
 fn main() {

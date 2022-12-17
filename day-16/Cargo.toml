@@ -1,11 +1,11 @@
 [package]
-name = "{{project-name}}"
+name = "day-16"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 itertools = "0.10.2"
-num = "0.4"
 lazy_static = "*"
 regex = "*"
+num = "0.4"
 runner = { path = "../runner" }
