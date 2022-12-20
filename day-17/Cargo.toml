@@ -1,0 +1,13 @@
+[package]
+name = "day-17"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.10.2"
+num = "0.4"
+lazy_static = "*"
+regex = "*"
+clearscreen = "*"
+colored = "*"
+runner = { path = "../runner" }
