@@ -1,0 +1,15 @@
+[package]
+name = "day-24"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.10.2"
+num = "0.4"
+lazy_static = "*"
+regex = "*"
+colored = "*"
+enum-iterator = "1.2.0"
+sorted-vec = "*"
+runner = { path = "../runner" }
+toolkit = { path = "../toolkit" }
