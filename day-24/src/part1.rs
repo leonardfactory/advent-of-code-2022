@@ -1,6 +1,4 @@
-use std::collections::{BinaryHeap, HashMap, HashSet, VecDeque};
-
-use sorted_vec::SortedVec;
+use std::collections::{HashMap, HashSet, VecDeque};
 use toolkit::map::{Map, Pos};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -93,7 +91,6 @@ pub fn parse_blizzard_map(input: &str) -> (Map<Tile>, BlizzardsMap) {
             );
             None
         }
-        _ => None,
     });
 
     map.tiles
@@ -104,7 +101,7 @@ pub fn parse_blizzard_map(input: &str) -> (Map<Tile>, BlizzardsMap) {
 }
 
 pub fn navigate_blizzards(input: &str) -> Option<usize> {
-    let (mut map, mut blizzards) = parse_blizzard_map(input);
+    let (map, mut blizzards) = parse_blizzard_map(input);
 
     let loop_count = ((map.bounds.width() - 2) * (map.bounds.height() - 2)) as usize;
     let mut blizzards_history = Vec::with_capacity(loop_count);

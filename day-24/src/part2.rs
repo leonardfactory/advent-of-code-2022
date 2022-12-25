@@ -1,6 +1,5 @@
-use std::collections::{HashMap, HashSet, VecDeque};
-
-use toolkit::map::{Map, Pos};
+use std::collections::{HashSet, VecDeque};
+use toolkit::map::Pos;
 
 use crate::part1::{available_moves, parse_blizzard_map, simulate_blizzard, Player, Tile};
 
